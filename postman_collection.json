@@ -1,0 +1,388 @@
+{
+	"info": {
+		"_postman_id": "c869e546-0e9d-4d90-b219-ff41b420516a",
+		"name": "Ticketing System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29752835"
+	},
+	"item": [
+		{
+			"name": "Tickets",
+			"item": [
+				{
+					"name": "Get All Tickets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/tickets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"tickets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Ticket by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/tickets/981a04ed-6a12-4719-956f-0380eda3a2d7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"tickets",
+								"981a04ed-6a12-4719-956f-0380eda3a2d7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Ticket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Demo System\",\r\n    \"description\": \"Demo System with Multi-Level Approval\",\r\n    \"urgency\": \"P2\",\r\n    \"userId\": \"a0a94441-e2c0-4063-85c3-4fe5b8484b5f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/tickets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"tickets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Ticket Details",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ticketId\": \"227e4eb6-d2e3-480a-bf34-04d882f6c060\",\r\n    \"title\": \"Ecommerce System\",\r\n    \"description\": \"Ecommerce System with Multi-Level Approval\",\r\n    \"urgency\": \"P1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/tickets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"tickets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Ticket by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/tickets/4af723d2-7d36-47cb-9ee6-1ef9298066df",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"tickets",
+								"4af723d2-7d36-47cb-9ee6-1ef9298066df"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Tickets by UserId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/tickets/user/a0a94441-e2c0-4063-85c3-4fe5b8484b5f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"tickets",
+								"user",
+								"a0a94441-e2c0-4063-85c3-4fe5b8484b5f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Tickets by approvalLevel",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Approve a Ticket by ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/tickets/981a04ed-6a12-4719-956f-0380eda3a2d7/approve?approveId=ced16eb8-6993-4dfb-b233-01863961d8a9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"tickets",
+								"981a04ed-6a12-4719-956f-0380eda3a2d7",
+								"approve"
+							],
+							"query": [
+								{
+									"key": "approveId",
+									"value": "ced16eb8-6993-4dfb-b233-01863961d8a9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reject a Ticket by ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/tickets/227e4eb6-d2e3-480a-bf34-04d882f6c060/reject?approveId=75dbeb95-ee9a-4b4b-80c3-799fbabba96d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"tickets",
+								"227e4eb6-d2e3-480a-bf34-04d882f6c060",
+								"reject"
+							],
+							"query": [
+								{
+									"key": "approveId",
+									"value": "75dbeb95-ee9a-4b4b-80c3-799fbabba96d"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get All Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a User by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/users/a0a94441-e2c0-4063-85c3-4fe5b8484b5f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"users",
+								"a0a94441-e2c0-4063-85c3-4fe5b8484b5f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"admin@gmail.com\",\r\n    \"password\":\"admin@123\",\r\n    \"role\":\"admin\",\r\n    \"level\":3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Info",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"a0a94441-e2c0-4063-85c3-4fe5b8484b5f\",\r\n    \"email\": \"user@gmail.com\",\r\n    \"password\": \"$2a$10$a/8dG54X2jj.wKEUApHPMeXNpKM2rq1sxuF45l6myGaZ/uCLFwMDG\",\r\n    \"role\": \"user\",\r\n    \"level\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/users/4ca6a3c9-1cc2-4d27-aa31-22f36f8bfd2f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"users",
+								"4ca6a3c9-1cc2-4d27-aa31-22f36f8bfd2f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
