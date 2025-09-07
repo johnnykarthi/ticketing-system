@@ -4,6 +4,7 @@ import com.encipherhealth.TicketingSystem.model.Ticket;
 import com.encipherhealth.TicketingSystem.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,24 +14,33 @@ import java.util.Objects;
 @RequestMapping("/api/tickets")
 public class TicketController {
 
-    @Autowired
-    private TicketService service;
+    private final TicketService service;
+
+    public TicketController(TicketService service){
+        this.service = service;
+    }
 
 
     // To create a New Ticket
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public Ticket addTicket(@RequestBody Ticket ticket){
-        return service.addTicket(ticket);
+    public ResponseEntity<Ticket> addTicket(@RequestBody Ticket ticket){
+        Ticket newtTicket = service.addTicket(ticket);
+
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(newtTicket);
+
     }
 
     // To get All Tickets
 
     @GetMapping
-    @ResponseStatus(HttpStatus.OK)
-    public List<Ticket> getAllTickets(){
-        return service.findAllTickets();
+    public ResponseEntity<List<Ticket>> getAllTickets(){
+        List<Ticket> allTickets = service.findAllTickets();
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(allTickets);
     }
 
     // To get a Specific Ticket
